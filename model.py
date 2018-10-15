@@ -1,9 +1,6 @@
 """
+
     Implementation of the dissonance model from Sethares 1993
-
-    TODOi: figure out interface
-
-    Make a Timbre class to hold timbre information
 
 """
 
@@ -37,7 +34,7 @@ def DF(F, V, alpha):
         for j,fj in enumerate(F):
             Da += d(fi, alpha*fj, V[i], V[j])
 
-    return D(F, V) + D(alpha*F, V) + Da 
+    return D(F, V) + D(alpha*F, V) + Da
 #    return Da
 
 def d(f1, f2, v1, v2):
