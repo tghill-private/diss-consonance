@@ -15,9 +15,10 @@ import model
 
 import curves
 
+from instruments import HarmonicInst
+
 # Make instruments
 r = 0.88
-HarmonicInst = timbre.Instrument((1, 2, 3, 4, 5), [r**i for i in range(5)], name = 'Harmonic')
 
 Harmonic = HarmonicInst(440)
 
