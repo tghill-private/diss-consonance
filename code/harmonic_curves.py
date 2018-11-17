@@ -23,4 +23,4 @@ r = 0.88
 
 Harmonic = HarmonicInst(440)
 
-curves.dissonance_curve(Harmonic, '../figs/harmonic_dissonance_curve.png', title = 'Harmonic Timbre')
+curves.dissonance_curve(Harmonic, '../figs/harmonic_dissonance_curve.png', title = None)
