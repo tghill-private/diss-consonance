@@ -2,7 +2,10 @@
 
     curves.py
 
-    Module to make it easy to make dissonance curves
+    Module to make it easy to make dissonance curves.
+
+    Having module for making figures will also make sure all the figures
+    are in a consistent style.
 
 """
 
@@ -10,9 +13,13 @@ from matplotlib import pyplot as plt
 
 import numpy as np
 
-import model
+from model import model
 
 def dissonance_curve(T, figname, title = 'Dissonance curve'):
+    """Draw a dissonance curve.
+
+    Labels the x-axis with semitones for 12 TET scale
+    """
     alpha = np.linspace(1, 2.2, 1000)
     dissonance = np.array([model.DF(T.F, T.V, a) for a in alpha])
     dissonance /= dissonance.max()
@@ -21,7 +28,7 @@ def dissonance_curve(T, figname, title = 'Dissonance curve'):
 
     ax.set_title(title)
 
-    ax.set_xlabel('$\\alpha$')
+    ax.set_xlabel('Number of semitones')
     ax.set_ylabel('Perceived dissonance')
 
     ax.plot(alpha, dissonance)

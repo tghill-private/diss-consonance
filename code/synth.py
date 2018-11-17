@@ -11,9 +11,10 @@ import numpy as np
 
 import synthesizer as synth
 
-import timbre
+import model
+from model import timbre
 
-from instruments import HarmonicInst, AharmInst
+from model.instruments import HarmonicInst, AharmInst
 
 player = synth.Player()
 player.open_stream()

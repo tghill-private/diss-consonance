@@ -10,13 +10,12 @@ from matplotlib import pyplot as plt
 
 import numpy as np
 
-import timbre
 import model
+import model.timbre
+from model import instruments
 
 import curves
 
-from instruments import AharmInst
+AHarmonic = instruments.AharmInst(440)
 
-AHarmonic = AharmInst(440)
-
-curves.dissonance_curve(AHarmonic, 'anharmonic_dissonance_curve.png', title = 'Anharmonic Timbre')
+curves.dissonance_curve(AHarmonic, '../figs/anharmonic_dissonance_curve.png', title = 'Anharmonic Timbre')

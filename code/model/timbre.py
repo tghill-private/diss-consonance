@@ -8,6 +8,8 @@
     produces; a Timbre instance stores the absolute frequencies present
     when an Instrument is played at a given fundamental frequency.
 
+    See examples at bottom of module
+
 """
 
 import numpy as np
@@ -90,12 +92,12 @@ class Timbre:
         return "%s: (%s), (%s)" % (self.name, Flist, Vlist)
 
 if __name__ == '__main__':
-    harmonic = Instrument((1, 2, 3, 4, 5), (1, 0.5, 0.25, 0.125, 0.125/2), 'Harmonix')
+    # Create an instrument with 6 harmonic partials
+    harmonic = Instrument((1, 2, 3, 4, 5), (1, 0.5, 0.25, 0.125, 0.125/2), 'Harmonic')
 
+    # Print string representation of instance
     print(harmonic)
 
+    # Calling instrument with a frequency returns a Timbre instance, storing
+    #  the absolute frequencies that will be present in the note
     print(harmonic(440))
-
-    anharm = Instrument((1, np.sqrt(2), np.sqrt(5), np.sqrt(7)), (1, 0.8, 0.8**2, 0.8**3), 'Anharmonix')
-    print(anharm)
-    print(anharm(440))

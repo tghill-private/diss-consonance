@@ -8,7 +8,7 @@
 
 import numpy as np
 
-import timbre
+from . import timbre
 
 HarmonicInst = timbre.Instrument((1, 2, 3, 4, 5), [1, 1, 1, 1, 1])
 
