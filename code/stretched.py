@@ -12,6 +12,7 @@ import numpy as np
 
 import model
 from model import timbre
+from model import synth
 
 import curves
 
@@ -67,31 +68,14 @@ ax2.axvline(A[1], color = 'red')
 
 fig.savefig('../figs/stretched_timbres.png', dpi = 600)
 
-# player = synth.Player()
-# player.open_stream()
-#
-# writer = synth.Writer()
-#
-# sy = synth.Synthesizer()
-#
-# f01 = 440.
-# f02 =
-#
-# H1 = HarmonicInst(f01)
-# H2 = HarmonicInst(f02)
-#
-# A1 = AharmInst(f01)
-# A2 = AharmInst(f02)
-#
-# print(np.concatenate((A1.F, A2.F)))
-#
-# print(np.concatenate((H1.F, H2.F)))
-#
-# harmwave = sy.generate_chord(list(np.concatenate((H1.F, H2.F))), 3.0)
-# player.play_wave(harmwave)
-# writer.write_wave("harmonic.wav", harmwave)
-#
-# # aharmchord = [440., 440.*817/411]
-# aharmwave = sy.generate_chord(list(np.concatenate((A1.F, A2.F))), 3.0)
-# player.play_wave(aharmwave)
-# writer.write_wave("anharmonic.wav", aharmwave)
+synthesizer_compressed = synth.synthesizer(Ic)
+synthesizer_stretched = synth.synthesizer(Is)
+
+synthesizer_compressed.play_interval(440, 1, "../audio/compressed_timbre_unison.wav")
+synthesizer_stretched.play_interval(440, 1, "../audio/stretched_timbre_unison.wav")
+
+synthesizer_compressed.play_interval(440, 1.75, "../audio/compressed_timbre_virt_octave.wav")
+synthesizer_stretched.play_interval(440, 2.25, "../audio/stretched_timbre_virt_octave.wav")
+
+synthesizer_compressed.play_interval(440, 1.75, "../audio/compressed_timbre_true_octave.wav")
+synthesizer_stretched.play_interval(440, 2.25, "../audio/stretched_timbre_true_octave.wav")
