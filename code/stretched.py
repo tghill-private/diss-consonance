@@ -71,26 +71,10 @@ fig.savefig('../figs/stretched_timbres.png', dpi = 600)
 synthesizer_compressed = synth.synthesizer(Ic)
 synthesizer_stretched = synth.synthesizer(Is)
 
-# synthesizer_compressed.play_interval(440, 1, duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(2./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(4./12.), duration = 1.)
-#
-# synthesizer_compressed.play_interval(440, 2.**(5./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(7./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(9./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(11./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.**(12./12.), duration = 1.)
-# synthesizer_compressed.play_interval(440, 2.25, duration = 1.)
-
-ints = (1, 2**(1./6.), 2**(1./3.), 2**(5./12.), 2**(7./12.), 2**(9./12.), 2**(11./12.), 2., 2.25)
+# List of frequencies to play
+ints = [1, 2**(1./6.), 2**(1./3.), 2**(5./12.), 2**(7./12.), 2**(9./12.), 2**(11./12.), 2., 1.75]
 synthesizer_compressed.save_interval(440, ints, '../audio/compressed_timbre_12TET_scale.wav', duration = 1.)
 
+ints[-1] = 2.25
 
-# synthesizer_compressed.save_interval(440, 1, "../audio/compressed_timbre_unison.wav")
-# synthesizer_stretched.save_interval(440, 1, "../audio/stretched_timbre_unison.wav")
-#
-# synthesizer_compressed.save_interval(440, 1.75, "../audio/compressed_timbre_virt_octave.wav")
-# synthesizer_stretched.save_interval(440, 2.25, "../audio/stretched_timbre_virt_octave.wav")
-#
-# synthesizer_compressed.save_interval(440, 1.75, "../audio/compressed_timbre_true_octave.wav")
-# synthesizer_stretched.save_interval(440, 2.25, "../audio/stretched_timbre_true_octave.wav")
+synthesizer_stretched.save_interval(440, ints, '../audio/stretched_timbre_12TET_scale.wave', duration = 1.)
