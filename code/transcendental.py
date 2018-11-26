@@ -12,6 +12,7 @@ import numpy as np
 
 import model
 from model import timbre
+from model import synth
 
 import curves
 
@@ -83,3 +84,9 @@ ax.set_xticks([])
 plt.tight_layout()
 
 fig.savefig('../figs/transcendental_partials.png', dpi = 400)
+
+synth_transc = synth.synthesizer(transc)
+
+synth_transc.save_interval(440, 1, '../audio/transcendental_unison.wav')
+synth_transc.save_interval(440, 2., '../audio/transcendental_octave.wav')
+synth_transc.save_interval(440, np.sqrt(2), '../audio/transcendental_sqrt2.wav')

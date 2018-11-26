@@ -12,6 +12,7 @@ import numpy as np
 
 import model
 from model import timbre
+from model import synth
 
 import curves
 
@@ -45,6 +46,25 @@ ax.set_xticks([b**i for i in range(12)])
 ax.set_xticklabels([str(i) for i in range(12)])
 
 fig.savefig('../figs/10tet_induced_timbre.png', pdi = 400)
+
+harminst = timbre.Instrument((1, 2, 3, 4), (1, 1, 1, 1))
+
+harmsynth = synth.synthesizer(harminst)
+tetsynth = synth.synthesizer(tet)
+majscale = [1, 2**(1./6.), 2**(1./3.), 2**(5./12), 2**(7./12.), 2**(9./12.), 2**(11./12.), 2.]
+harmsynth.save_interval(440, majscale, '../audio/harmonic_timbre_maj_scale.wav', duration = 1.)
+
+tetsynth.save_interval(440, majscale, '../audio/10tet_maj_scale.wav', duration = 1.)
+
+ints10tet = [1, 2**(2./10.), 2**(3./10.), 2**(5./10.), 2**(8./10.), 2]
+tetsynth.save_interval(440, ints10tet, '../audio/10tet_induced_scale.wav', duration = 1.)
+
+scale10tet = [2**(n/12.) for n in range(11)]
+tetsynth.save_interval(440, scale10tet, '../audio/10_tet_10tet_scale.wav', duration = 1.)
+
+harmsynth.save_interval(440, scale10tet, '../audio/harmonic_timbre_10tet_scale.wav', duration = 1.)
+
+
 
 
 
