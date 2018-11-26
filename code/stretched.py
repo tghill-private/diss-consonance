@@ -19,7 +19,7 @@ import curves
 # import synthesizer as synth
 
 A = [1.75, 2.25]
-J = np.arange(1, 4)
+J = np.arange(1, 6)
 
 f0 = 440
 
@@ -73,8 +73,8 @@ synthesizer_stretched = synth.synthesizer(Is)
 
 # List of frequencies to play
 ints = [1, 2**(1./6.), 2**(1./3.), 2**(5./12.), 2**(7./12.), 2**(9./12.), 2**(11./12.), 2., 1.75]
-synthesizer_compressed.save_interval(440, ints, '../audio/compressed_timbre_12TET_scale.wav', duration = 1.)
+synthesizer_compressed.save_interval(440, ints, '../audio/compressed_timbre_12TET_scale_440.wav', duration = 1.)
 
 ints[-1] = 2.25
 
-synthesizer_stretched.save_interval(440, ints, '../audio/stretched_timbre_12TET_scale.wave', duration = 1.)
+synthesizer_stretched.save_interval(220, ints, '../audio/stretched_timbre_12TET_scale_220.wav', duration = 1.)
