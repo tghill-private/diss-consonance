@@ -18,9 +18,9 @@ import curves
 
 b = 2.**(1./10.)
 
-f = [1, b**5, b**8, b**10]
+f = [1, b**15, b**8, b**10]
 # f = [1, 2, 3]
-amps = [1, 0.5, 0.5, 1]
+amps = [1, 1, 1, 1]
 tet = timbre.Instrument(f, amps)
 
 f0 = 440
@@ -56,7 +56,7 @@ harmsynth.save_interval(440, majscale, '../audio/harmonic_timbre_maj_scale.wav',
 
 tetsynth.save_interval(440, majscale, '../audio/10tet_maj_scale.wav', duration = 1.)
 
-ints10tet = [1, 2**(2./10.), 2**(3./10.), 2**(5./10.), 2**(8./10.), 2]
+ints10tet = [1, 2**(2./10.), 2**(5./10.), 2**(7./10.), 2**(8./10.), 2]
 tetsynth.save_interval(440, ints10tet, '../audio/10tet_induced_scale.wav', duration = 1.)
 
 scale10tet = [2**(n/12.) for n in range(11)]

@@ -73,7 +73,7 @@ for v in f:
     ax.axhline(v, color = 'k', lw = 1)
 
 for v in alpha * np.array(f):
-    ax.axhline(v, color = 'r', lw = 1)
+    ax.axhline(v, color = 'r', lw = 1, ls = '--')
 
 ax.set_ylabel('$\\alpha$')
 
